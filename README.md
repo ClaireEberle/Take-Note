@@ -6,7 +6,7 @@ This application was created in order to allow a user to add their personal note
 
 ## License
     
-![NPM](https://img.shields.io/npm/l/inquirer@8.2.4)
+![NPM](https://img.shields.io/npm/l/express)
     
 ## Table of Contents
    
