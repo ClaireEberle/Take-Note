@@ -12,6 +12,8 @@ if (window.location.pathname === '/notes') {
   noteList = document.querySelectorAll('.list-container .list-group');
 }
 
+
+
 // Show an element
 const show = (elem) => {
   elem.style.display = 'inline';
@@ -25,6 +27,8 @@ const hide = (elem) => {
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
+
+
 const getNotes = () =>
   fetch('/api/notes', {
     method: 'GET',
@@ -36,11 +40,20 @@ const getNotes = () =>
 const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
+    body: JSON.stringify(note),
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(note),
-  });
+  }).then(res=>{
+    if(res.ok){
+        alert("tables have been updated!");
+        location.reload();
+    
+        // window.parent.location = window.parent.location.href;
+    }else{
+        console.log(res)
+    }
+  })
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
