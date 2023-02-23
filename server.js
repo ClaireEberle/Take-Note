@@ -47,16 +47,21 @@ console.info(`${req.method} reqeust recieved to add a notes`);
     }
     console.log(response);
 res.status(201).json(response);
-// } else {
-//     res.status(500).json('Error in posting new note')
-// }
+
 })
+
+
 
 app.delete('api/notes/:id', (req,res) => {
-    fs.readFileSync("./db/db.json", JSON.stringify(Notes))
+    for (let i=0; i<Notes.length; i++){
+        removeArrayItem(Notes[i].id, req.params.id)
+    }
+    fs.writeFileSync("./db/db.json", JSON.stringify(Notes))
     res.json(Notes)
-
+    
 })
+
+
 
 app.listen(PORT, () => {
     console.log(`app listening at http://localhost:${PORT}`)
