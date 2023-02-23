@@ -23,7 +23,7 @@ This application was created in order to allow a user to add their personal note
     
 ## Installation
     
- To use this program you must install node.js as well as inquirer@8.2.4. 
+ To use this program you must install node.js as well and install included packages. 
     
  ## Usage
     
