@@ -4,7 +4,7 @@ const path = require('path');
 const uuid = require('./helpers/uuid');
 const fs = require('fs')
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 const router = require("express").Router(); 
@@ -25,8 +25,6 @@ app.get('/notes', (req,res) => {
 app.get('/api/notes', (req,res) => {
     res.json(Notes)
 });
-
-//----------get note by id----------
 
 
 app.post('/api/notes', (req,res) => {
@@ -52,6 +50,12 @@ res.status(201).json(response);
 // } else {
 //     res.status(500).json('Error in posting new note')
 // }
+})
+
+app.delete('api/notes/:id', (req,res) => {
+    fs.readFileSync("./db/db.json", JSON.stringify(Notes))
+    res.json(Notes)
+
 })
 
 app.listen(PORT, () => {
