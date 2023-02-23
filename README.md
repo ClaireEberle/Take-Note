@@ -1,6 +1,7 @@
 # Take-Note
 Site URL: https://peaceful-shore-21947.herokuapp.com/
 
+![Screenshot 2023-02-23 at 2 45 52 PM](https://user-images.githubusercontent.com/116858582/221048219-857ee5da-83e1-444b-82e0-f5af415562b6.png)
 
 
 ## Description
