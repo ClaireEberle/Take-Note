@@ -52,12 +52,22 @@ res.status(201).json(response);
 
 
 
-app.delete('api/notes/:id', (req,res) => {
-    for (let i=0; i<Notes.length; i++){
-        removeArrayItem(Notes[i].id, req.params.id)
+app.delete('/api/notes/:id', (req,res) => {
+   const delNote = JSON.stringify(Notes);
+//    console.log(delNote)
+   console.log(Notes)
+    for (let i=0; i<5; i++){
+        console.log(Notes[i].id)
+        if(Notes[i].id === req.params.id){
+            console.log(Notes[i].id)
+        Notes.splice(i,1)
+        
+        fs.writeFileSync("./db/db.json", JSON.stringify(Notes))
+        res.json(Notes)
+        }
+             
+        
     }
-    fs.writeFileSync("./db/db.json", JSON.stringify(Notes))
-    res.json(Notes)
     
 })
 
